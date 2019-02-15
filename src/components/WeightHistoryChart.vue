@@ -37,9 +37,18 @@
           data: {
             labels: this.historyData.map(a => this.formatDate(a.date)),
             datasets: [{
-              label: '# of Votes',
               data: this.historyData.map(a => a.weight),
-              borderWidth: 1
+              borderWidth: 1,
+              borderColor: "#80b6f4",
+              pointBorderColor: "#80b6f4",
+              pointBackgroundColor: "#80b6f4",
+              pointHoverBackgroundColor: "#80b6f4",
+              pointHoverBorderColor: "#80b6f4",
+              pointBorderWidth: 10,
+              pointHoverRadius: 10,
+              pointHoverBorderWidth: 1,
+              pointRadius: 1,
+              fill: false,
             }]
           },
           options: {
@@ -47,12 +56,15 @@
               display: false
             },
             tooltips: {
-              enabled: false
+              callbacks: {
+                labelColor: function(tooltipItem, chart) {
+                  return false
+                },
+              }
             },
             scales: {
               yAxes: [{
                 ticks: {
-                  min: 80,
                   beginAtZero: false
                 }
               }]

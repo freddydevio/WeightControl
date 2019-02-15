@@ -1,6 +1,6 @@
 <template>
   <div class="current-weight">
-    <span class="label">Current weight</span>
+    <span class="label">{{$t('currentWeightText')}}</span>
     <span class="weight">{{weight|weightFormat}}</span>
   </div>
 </template>

@@ -1,11 +1,13 @@
 <template>
   <div class="last-weight-decreased">
     <span class="weight">{{lastWeight|weightFormat}}</span>
-    <span class="label">Last weight decreased</span>
+    <span class="label">Last weight decreased to {{lastWeightEntry.date|formatDate}}</span>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
+
 const WEIGHT_TYPE = 'kg'
 const CURRENT_WEIGHT_STORE_KEY = 'CURRENT_WEIGHT_STORE'
 const WEIGHT_ENTRIES_STORE_KEY = 'WEIGHT_ENTRIES_STORE'
@@ -27,17 +29,22 @@ export default {
         let lastData = historyData[historyData.length - 2]
 
         this.lastWeight = currentWeight - lastData.weight
+        this.lastWeightEntry = lastData
       }
     }
   },
   filters: {
     weightFormat(value) {
       return (value > 0 ? '+ ':'') + (value.toFixed(1) + ' ' + WEIGHT_TYPE)
+    },
+    formatDate(value) {
+      return moment(value).format('dddd, DD.MM.YYYY')
     }
   },
   data() {
     return {
-      lastWeight: 0
+      lastWeight: 0,
+      lastWeightEntry: {}
     }
   }
 }
