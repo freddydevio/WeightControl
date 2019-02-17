@@ -1,11 +1,11 @@
 <template>
   <div class="first-run" v-if="firstRun">
     <form v-on:submit="submitForm">
-      <span class="form-label">Your start weight</span>
+      <span class="form-label">{{$t('firstRunStartWeightText')}}</span>
       <input type="number" v-model="startWeight" min="0" max="300" step="0.1">
-      <span class="form-label">Your target weight</span>
+      <span class="form-label">{{$t('firstRunTargetWeightText')}}</span>
       <input type="number" v-model="targetWeight" min="0" max="300" step="0.1">
-      <input type="submit" value="Start now">
+      <input type="submit" :value="$t('firstRunStartText')">
     </form>
   </div>
 </template>

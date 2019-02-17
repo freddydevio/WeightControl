@@ -1,10 +1,18 @@
 export default {
     en: {
-        lastWeightDecreasedText: 'Last weight decreased to',
-        currentWeightText: 'Current weight'
+        currentWeightText: 'Current weight',
+        compareToLastWeightText: 'Compared to last entry',
+        addEntryButtonText: 'Add entry',
+        firstRunStartWeightText: 'Your start weight',
+        firstRunTargetWeightText: 'Your target weight',
+        firstRunStartText: 'Start now',
     },
     de: {
-        lastWeightDecreasedText: '',
-        currentWeightText: 'Aktuelles Gewicht'
+        currentWeightText: 'Aktuelles Gewicht',
+        compareToLastWeightText: 'Im Vergleich zum letzten Eintrag vom',
+        addEntryButtonText: 'Eintrag hinzufügen',
+        firstRunStartWeightText: 'Start Gewicht',
+        firstRunTargetWeightText: 'Ziel Gewicht',
+        firstRunStartText: 'Starte jetzt',
     }
 }

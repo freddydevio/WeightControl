@@ -1,7 +1,7 @@
 <template>
   <div class="last-weight-decreased">
     <span class="weight">{{lastWeight|weightFormat}}</span>
-    <span class="label">Last weight decreased to {{lastWeightEntry.date|formatDate}}</span>
+    <span class="label">{{$t('compareToLastWeightText')}}<br/>{{lastWeightEntry.date|formatDate}}</span>
   </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
       return (value > 0 ? '+ ':'') + (value.toFixed(1) + ' ' + WEIGHT_TYPE)
     },
     formatDate(value) {
-      return moment(value).format('dddd, DD.MM.YYYY')
+      return moment(value).locale(navigator.languages[0]).format('dddd, DD.MM.YYYY')
     }
   },
   data() {
@@ -57,13 +57,14 @@ export default {
     align-items: center;
     opacity: .6;
     .label {
-      font-weight: bolder;
-      font-size: .7rem;
+      font-weight: normal;
+      font-size: .8rem;
+      text-align: center;
       color: #2f3640;
     }
     .weight {
       font-weight: normal;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: #2f3640;
     }
   }

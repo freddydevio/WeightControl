@@ -6,7 +6,7 @@
     <form v-on:submit="submitForm">
       <span class="current-date">{{currentDate|formatDate}}</span>
       <input type="number" v-model="weight" min="0" max="300" step="0.1">
-      <input type="submit" value="Add entry">
+      <input type="submit" :value="$t('addEntryButtonText')">
     </form>
   </div>
 </template>
@@ -25,7 +25,7 @@
         return value + ' ' + WEIGHT_TYPE
       },
       formatDate(value) {
-        return moment(value).format('dddd, DD.MM.YYYY')
+        return moment(value).locale(navigator.languages[0]).format('dddd, DD.MM.YYYY')
       }
     },
     mounted() {
