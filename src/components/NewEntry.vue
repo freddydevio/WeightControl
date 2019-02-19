@@ -5,7 +5,7 @@
     </div>
     <form v-on:submit="submitForm">
       <span class="current-date">{{currentDate|formatDate}}</span>
-      <input type="number" v-model="weight" min="0" max="300" step="0.1">
+      <input type="number" pattern="\d*" v-model="weight" min="0" max="300" step="0.1">
       <input type="submit" :value="$t('addEntryButtonText')">
     </form>
   </div>
@@ -72,10 +72,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: #192a56;
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
     padding: 1rem;
     align-items: center;
     justify-content: center;
+    z-index: 100;
     .go-back {
       font-size: 2rem;
       color: white;
